@@ -88,6 +88,39 @@ void popTail(){
     temp = NULL;
 }
 
+void popMid(char deleteName[]){
+    if(head == NULL){
+        return;
+    }
+    if(head == tail){
+        free(head);
+        head = NULL;
+        tail = NULL;
+        return;
+    }
+
+    User* curr = head;
+    while(curr !- NULL && strcmp(curr -> name, deleteName) != 0){
+        curr = curr -> next;
+    }
+    if(curr == NULL){
+        printf("Data Not found\n");
+        return;
+    }
+
+    User* before = curr -> prev;
+    User* after = curr -> next;
+
+    before -> next = after;
+    after -> prev = before;
+
+    curr -> prev = NULL;
+    curr -> next = NULL;
+
+    free(curr);
+    curr = NULL;
+}
+
 void printAll(){
     User* curr = head;
     while(curr != NULL){
