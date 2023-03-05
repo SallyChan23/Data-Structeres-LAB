@@ -100,7 +100,7 @@ void popMid(char deleteName[]){
     }
 
     User* curr = head;
-    while(curr !- NULL && strcmp(curr -> name, deleteName) != 0){
+    while(curr != NULL && strcmp(curr -> name, deleteName) != 0){
         curr = curr -> next;
     }
     if(curr == NULL){
